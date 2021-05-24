@@ -12,6 +12,7 @@
         <link rel="shortcut icon" href="assets/images/apple-icon.png">
         <link rel="shortcut icon" sizes="72x72" href="assets/images/apple-icon-72x72.png">
         <link rel="shortcut icon" sizes="114x114" href="assets/images/apple-icon-114x114.png">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
         <!-- Google Font-->
         <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -521,7 +522,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                            <form id="contactForm" class="single-form quate-form wow fadeInUp" data-toggle="validator">
+                            <form id="submit-form" action="" class="single-form quate-form wow fadeInUp" data-toggle="validator">
                                 <div id="msgSubmit" class="h3 text-center hidden"></div>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
@@ -692,6 +693,25 @@
     </ul>
     </div>
     </div>
+         <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbw1Ph3s_1KwfUm1TrMelWU3mqcAWTTKpPpX2CmMWk3ZoidJ3XJN2phkrJoqgZwUx0Nqag/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
